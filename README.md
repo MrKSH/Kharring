@@ -17,6 +17,11 @@ The task is episodic, and in order to solve the environment, your agent must get
 This solution achieved +13 results at Environment solved in 293 episodes with an average Score of 
 13.07.
 
+# Learning Algorithm
+The algorithm applied is the double Q_network where the current nn-network or local-network (i.e., Y-Hat prediction) is one network and the 'labeled-data "Y"'
+or target-network is the other neural network. Driven by the double_dqn(n_episodes=2000, max_t=1000, eps_start=1.0, eps_end=0.01, eps_decay=0.995) procedure; the core algorithm uses the current state and calls act.env(current - state) process which trains the local-network, then applies Epsilon-Greedy to return the 'best' action which is then used to get the next-state, rewards, and done status.
+A step is now taken which saves current state and next-state plus action, reward and done to reply-memory. If the reply-memory has enough experiences accumulated then a random sample of experiences are selected and these are used to train the local-network; otherwise the reply-memory continues to build. Note, the random sample returned are the following elements: states, actions, rewards, next-states, dones.  The next-state's targets = rewards + (gamma * Q_targets_next * (1 - dones)) where Q_targets are a list of the max action-values of the 4-actions available for that next-state; correspondingly the local network's actions are gathered as expected values. Both of these values go into the loss function F.mse_loss(expected, targets) followed by the weight optimization phase then the process iterates. Every four steps the target-network is updated with the local-network's weights. The reply-memory grows with experiences and these are used to lean.
+
 # Environment
 The code we executed in the Udacity provided jupyter workspace, the specifics follow:
 1.	Ipython 6.5.0 imported to the workspace: !pip -q install ./python
