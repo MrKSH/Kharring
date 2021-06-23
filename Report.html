@@ -13408,25 +13408,43 @@ States have length: 37
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="prompt input_prompt">In&nbsp;[1]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="sd">&#39;&#39;&#39;</span>
-<span class="sd">Note to the reviewer 18-Jun-21</span>
+<span class="sd">Note to the reviewer 23-Jun-21</span>
+
 <span class="sd">This project used a double deep-Q network modifying the code provided in the lessons.</span>
 <span class="sd">Alterations to the code were in the double_dqn, the agent, and the class as per the files</span>
 <span class="sd">submitted.  I used Batch Normaliztion to accelerates learning on layers one and two, altered </span>
 <span class="sd">the fcx_unit sizes which did very little to improve performance so I stuck with 64 as the size for</span>
-<span class="sd">fc1 and fc2.</span>
+<span class="sd">fc1 and fc2.  The execution was run in &#39;CPU&#39; mode.</span>
 
 <span class="sd">The final saved trained model used a three layer neural network where the batchsize was 32.</span>
-<span class="sd">Hyper-parameters: (1) LR-learning-rate; (2) Espsilon-Decay value and; (3) Gamma we adjusted to</span>
-<span class="sd">realize the best results. The best hyper-parameter adjustments were LR changed to 5e-55</span>
-<span class="sd">and Epsion-Decay lowered down to 0.9645. Dropping Gamma to around0.95 helped realize the results</span>
-<span class="sd">faster, but not as much as the other two.</span>
+<span class="sd">Hyper-parameters: </span>
+<span class="sd">   (1) LR-learning-rate:        LR          = 5e-55 </span>
+<span class="sd">   (2) Espsilon-Decay:          eps_decay   = 0.9645</span>
+<span class="sd">   (3) Gamma:                   GAMMA       = 0.95</span>
+<span class="sd">   (4) Batch size:              BATCH_SIZE  = 32</span>
+<span class="sd">Agent Parameters:</span>
+<span class="sd">   (1) state size:              state_size  = 37</span>
+<span class="sd">   (2) Env actions:             action_size = 4</span>
+<span class="sd">   (3) Seed:                    seed        = 42            </span>
+<span class="sd">scores      = 0   </span>
+
+<span class="sd">These parameters realized the best results.Note: Dropping Gamma to around 0.95 helped realize the results</span>
+<span class="sd">faster, but not as much as adjusting Espsilon-Decay, i.e., slowing it and LR, i.e., speeding it up.</span>
 
 <span class="sd">Within this notebook you will also see runs using a four layer neural net altering the </span>
-<span class="sd">hyper-parameters. Results were roughly the same so I chose the final two layer model.</span>
+<span class="sd">hyper-parameters. Results were roughly the same so I chose the final three layer model as described above resulting in</span>
+<span class="sd">the following output:</span>
+
+<span class="sd">   BATCH_SIZE 32</span>
+<span class="sd">   Episode 100	Average Score: 2.33</span>
+<span class="sd">   Episode 200	Average Score: 7.11</span>
+<span class="sd">   Episode 300	Average Score: 9.86</span>
+<span class="sd">   Episode 393	Average Score: 13.07</span>
+<span class="sd">   Environment solved in 293 episodes!	Average Score: 13.07</span>
 
 <span class="sd">Thank you.</span>
 <span class="sd">Kim</span>
@@ -13435,6 +13453,26 @@ States have length: 37
 </pre></div>
 
     </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[1]:</div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>&#39;\nNote to the reviewer 18-Jun-21\nThis project used a double deep-Q network modifying the code provided in the lessons.\nAlterations to the code were in the double_dqn, the agent, and the class as per the files\nsubmitted.  I used Batch Normaliztion to accelerates learning on layers one and two, altered \nthe fcx_unit sizes which did very little to improve performance so I stuck with 64 as the size for\nfc1 and fc2.\n\nThe final saved trained model used a three layer neural network where the batchsize was 32.\nHyper-parameters: \n   (1) LR-learning-rate:        LR          = 5e-55 \n   (2) Espsilon-Decay:          eps_decay   = 0.9645\n   (3) Gamma:                   GAMMA       = 0.95\n   (4) Batch size:              BATCH_SIZE  = 32\nAgent Parameters:\n   (1) state size:              state_size  = 37\n   (2) Env actions:             action_size = 4\n   (3) Seed:                    seed        = 42            \nscores      = 0   \nThese parameters realized the best results.Note: Dropping Gamma to around0.95 helped realize the results\nfaster, but not as much as adjusting Espsilon-Decay, i.e., slowing it and LR, i.e., speeding it up.\n\nWithin this notebook you will also see runs using a four layer neural net altering the \nhyper-parameters. Results were roughly the same so I chose the final three layer model as described above resulting in.\n\nThank you.\nKim\n\n&#39;</pre>
+</div>
+
+</div>
+
 </div>
 </div>
 
